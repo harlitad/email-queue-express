@@ -29,9 +29,17 @@ function sendMail(address_mail) {
     text: "Hello world?",
     html: "<b>Lakukan pembayaran segera !</b>",
   };
-  return newTransporter.sendMail(obj).catch((e) => console.error(e));
+  return new Promise((resolve, reject) => {
+    newTransporter.sendMail(obj, (err, info) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(info);
+      }
+    });
+  });
 }
 
 module.exports = {
-    sendMail
-}
+  sendMail,
+};
