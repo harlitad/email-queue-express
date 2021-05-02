@@ -1,4 +1,5 @@
 # Send Email With Queue
+> sending email with queue redis
 ## Dependencies
 - redis
 - nodemailer
